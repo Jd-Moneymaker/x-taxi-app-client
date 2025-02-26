@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:x_taxi_app_client/config/style/style.dart';
 import 'package:x_taxi_app_client/core/utils/bottom_nav_bar.dart';
 import '../widgets/ad_card.dart';
@@ -114,16 +115,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       children: [
                         Container(
+                          padding: EdgeInsets.all(10),
                           height: 40,
                           width: 40,
                           decoration: BoxDecoration(
                             color: const Color.fromARGB(30, 0, 0, 0),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          child: const Icon(
-                            Icons.work,
-                            color: Colors.black,
-                            size: 20,
+                          child: SvgPicture.asset(
+                            'assets/svg/bag.svg',
+                            width: 24,
+                            height: 24,
+                            colorFilter:
+                                ColorFilter.mode(Colors.black, BlendMode.srcIn),
                           ),
                         ),
                         const SizedBox(width: 12),

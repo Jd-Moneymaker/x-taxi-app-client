@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:x_taxi_app_client/config/style/style.dart';
 import 'package:x_taxi_app_client/core/nav%20cubit/nav_cubit.dart';
 import 'package:x_taxi_app_client/core/nav%20cubit/nav_state.dart';
 
@@ -40,24 +42,47 @@ class BottomNavBar extends StatelessWidget {
             type: BottomNavigationBarType.fixed,
             selectedItemColor: Colors.black, // Add this
             unselectedItemColor: Colors.grey, // Add this
+            selectedLabelStyle: textB,
+            unselectedLabelStyle: textB,
             showUnselectedLabels: true,
             currentIndex: state.index,
             onTap: (index) => _onItemTapped(context, index),
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: SvgPicture.asset(
+                  'assets/svg/home.svg',
+                  width: 24,
+                  height: 24,
+                  colorFilter:
+                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.view_compact),
+                icon: SvgPicture.asset(
+                  'assets/svg/services.svg',
+                  width: 24,
+                  height: 24,
+                  colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
                 label: 'Services',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.history),
+                icon: SvgPicture.asset(
+                  'assets/svg/activity.svg',
+                  width: 24,
+                  height: 24,
+                  colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
                 label: 'Activity',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
+                icon: SvgPicture.asset(
+                  'assets/svg/user.svg',
+                  width: 24,
+                  height: 24,
+                  colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
                 label: 'Account',
               ),
             ],
