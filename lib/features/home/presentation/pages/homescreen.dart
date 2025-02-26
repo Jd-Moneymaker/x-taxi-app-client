@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:x_taxi_app_client/config/style/style.dart';
+import 'package:x_taxi_app_client/core/utils/bottom_nav_bar.dart';
 import '../widgets/ad_card.dart';
 import '../widgets/vehicle_card.dart';
 
@@ -11,8 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Colors.white,
@@ -20,9 +19,12 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           centerTitle: false,
           backgroundColor: Colors.white,
-          title: Text(
-            'UBER',
-            style: textBoldB.copyWith(fontSize: 20),
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              'Taxi App',
+              style: textBoldB.copyWith(fontSize: 20),
+            ),
           ),
         ),
 
@@ -32,36 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
           ),
-          child: BottomNavigationBar(
-            currentIndex: _selectedIndex,
-            onTap: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.white,
-            selectedItemColor: Colors.black,
-            unselectedItemColor: Colors.grey,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.miscellaneous_services),
-                label: 'Services',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.local_activity),
-                label: 'Activity',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Account',
-              ),
-            ],
-          ),
+          child: const BottomNavBar(),
         ),
         // ! bottom nav bar
 
@@ -179,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Colors.amber,
+                    color: const Color.fromARGB(239, 255, 193, 7),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
@@ -191,14 +164,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             const SizedBox(height: 10),
                             Text(
-                              'Try Uber Pass',
+                              'Try out our membership plans',
                               style: textBoldB.copyWith(
                                 fontSize: 18,
                               ),
                             ),
-                            const SizedBox(height: 8),
+                            const SizedBox(height: 10),
                             Text(
-                              'Save up to 20% on rides, and more',
+                              'Save 20% on rides, and more',
                               style: textBoldW.copyWith(
                                 fontSize: 14,
                                 color: Colors.black54,
@@ -340,11 +313,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 25),
                   child: Row(
                     children: [
-                      AdCard(),
+                      AdCard(
+                        title: 'Save time and money',
+                        image:
+                            'https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/Motorcycle.png',
+                      ),
                       SizedBox(width: 25),
-                      AdCard(),
+                      AdCard(
+                        title: 'Safety and comfort',
+                        image:
+                            'https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/Hatchback.png',
+                      ),
                       SizedBox(width: 25),
-                      AdCard(),
+                      AdCard(
+                        title: 'Airport trips and more',
+                        image:
+                            'https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/Hatchback.png',
+                      ),
                     ],
                   ),
                 ),

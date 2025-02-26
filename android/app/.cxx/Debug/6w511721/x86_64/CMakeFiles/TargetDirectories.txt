@@ -1,0 +1,2 @@
+E:/Code/Flutter Projects/2025/x_taxi_app_client/android/app/.cxx/Debug/6w511721/x86_64/CMakeFiles/edit_cache.dir
+E:/Code/Flutter Projects/2025/x_taxi_app_client/android/app/.cxx/Debug/6w511721/x86_64/CMakeFiles/rebuild_cache.dir

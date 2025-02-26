@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:x_taxi_app_client/config/style/style.dart';
 
 class AdCard extends StatelessWidget {
-  const AdCard({super.key});
+  const AdCard({super.key, this.title, this.image});
+
+  final String? title;
+  final String? image;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -22,7 +25,7 @@ class AdCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Save time and \nmoney',
+                      title ?? '',
                       style: textBoldB.copyWith(
                         fontSize: 18,
                       ),
@@ -37,7 +40,7 @@ class AdCard extends StatelessWidget {
                         ),
                       ),
                       child: const Text(
-                        'Learn More',
+                        'Learn more',
                         style: textBoldB,
                       ),
                     ),
@@ -51,7 +54,8 @@ class AdCard extends StatelessWidget {
                 borderRadius:
                     const BorderRadius.horizontal(right: Radius.circular(15)),
                 child: Image.network(
-                  'https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/Motorcycle.png',
+                  image ??
+                      'https://d1a3f4spazzrp4.cloudfront.net/car-types/haloProductImages/v1.1/Motorcycle.png',
                   height: double.infinity,
                   width: 120,
                   fit: BoxFit.cover,
