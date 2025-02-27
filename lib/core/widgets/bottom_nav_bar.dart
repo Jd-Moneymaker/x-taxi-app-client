@@ -13,16 +13,16 @@ class BottomNavBar extends StatelessWidget {
 
     switch (index) {
       case 0:
-        Navigator.of(context).pushNamed('/');
+        Navigator.of(context).popAndPushNamed('/');
         break;
       case 1:
-        Navigator.of(context).pushNamed('service-screen');
+        Navigator.of(context).popAndPushNamed('service-screen');
         break;
       case 2:
-        Navigator.of(context).pushNamed('service-screen');
+        Navigator.of(context).popAndPushNamed('activity-screen');
         break;
       case 3:
-        Navigator.of(context).pushNamed('service-screen');
+        Navigator.of(context).popAndPushNamed('account-screen');
         break;
 
       default:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:x_taxi_app_client/config/style/style.dart';
-import 'package:x_taxi_app_client/core/utils/bottom_nav_bar.dart';
+import 'package:x_taxi_app_client/core/widgets/bottom_nav_bar.dart';
 import 'package:x_taxi_app_client/features/home/presentation/widgets/vehicle_card.dart';
 import '../../../core/widgets/custom_app_bar.dart';
 

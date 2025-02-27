@@ -12,21 +12,31 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showBackButton;
 
   @override
-  Widget build(BuildContext context) => AppBar(
-        centerTitle: false,
-        backgroundColor: Colors.white,
-        leading: showBackButton
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.black),
-                onPressed: () => Navigator.pop(context),
-              )
-            : null,
-        title: Text(
-          title,
-          style: textBoldB.copyWith(fontSize: 20),
+  Widget build(BuildContext context) => PreferredSize(
+        preferredSize: preferredSize,
+        child: Container(
+          padding: const EdgeInsets.only(top: 40, bottom: 10),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+          ),
+          child: AppBar(
+            toolbarHeight: 60,
+            centerTitle: false,
+            backgroundColor: Colors.white,
+            leading: showBackButton
+                ? IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.black),
+                    onPressed: () => Navigator.pop(context),
+                  )
+                : null,
+            title: Text(
+              title,
+              style: textBoldB.copyWith(fontSize: 24),
+            ),
+          ),
         ),
       );
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(110); // Taller app bar height
 }

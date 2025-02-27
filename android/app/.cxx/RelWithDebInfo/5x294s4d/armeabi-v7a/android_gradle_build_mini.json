@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "E:\\Environments\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\MONEYMAKER\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "E:\\Code\\Flutter Projects\\2025\\x_taxi_app_client\\android\\app\\.cxx\\RelWithDebInfo\\5x294s4d\\armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\MONEYMAKER\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "E:\\Code\\Flutter Projects\\2025\\x_taxi_app_client\\android\\app\\.cxx\\RelWithDebInfo\\5x294s4d\\armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}
