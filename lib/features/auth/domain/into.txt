@@ -1,0 +1,6 @@
+domain contains the business logic of the app
+
+entities => are the business objects of an application or system
+
+
+product entities

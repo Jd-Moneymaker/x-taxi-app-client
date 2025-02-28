@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:x_taxi_app_client/config/style/style.dart';
 import 'package:x_taxi_app_client/core/widgets/bottom_nav_bar.dart';
+import 'package:x_taxi_app_client/features/auth/presentation/cubit/auth_cubit.dart';
+import 'package:x_taxi_app_client/features/auth/presentation/cubit/auth_state.dart';
+import 'package:x_taxi_app_client/features/auth/presentation/pages/auth/views/auth.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -135,6 +139,37 @@ class AccountScreen extends StatelessWidget {
                 title: 'Legal',
                 image: 'assets/svg/info.svg',
               ),
+
+              BlocConsumer<AuthCubit, AuthState>(
+                listener: (context, state) {
+                  if (state is AuthLoggedOut) {
+                    // Navigate to the AuthScreen after logout
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (_) => const AuthScreen()),
+                    );
+                  } else if (state is AuthError) {
+                    // Handle errors (if any)
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Error: ${state.toString()}')),
+                    );
+                  }
+                },
+                builder: (context, state) {
+                  if (state is AuthLoading) {
+                    return const Center(
+                        child:
+                            CircularProgressIndicator()); // Show loading spinner
+                  }
+                  return GestureDetector(
+                    onTap: () => context.read<AuthCubit>().logOut(),
+                    child: AccountOptions(
+                      title: 'Logout',
+                      image: 'assets/svg/log-out.svg',
+                    ),
+                  );
+                },
+              ),
+
               // ! account option items
             ],
           ),
@@ -144,14 +179,15 @@ class AccountScreen extends StatelessWidget {
 }
 
 class AccountOptions extends StatelessWidget {
-  const AccountOptions({super.key, this.title, this.image});
+  const AccountOptions({super.key, this.title, this.image, this.onTap});
 
   final String? title;
   final String? image;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 35),
         child: SizedBox(

@@ -50,16 +50,22 @@ class ActivityScreen extends StatelessWidget {
                 ),
               ),
               ActivityCard(
-                place: 'Aliapurduar',
+                place: 'Howrah',
                 dateTime: '12th June . 10:59 am',
                 price: '₹ 500 . 00  .  Dropped',
-                image: 'assets/png/map.png',
+                image: 'assets/png/howrah.png',
               ),
               ActivityCard(
                 place: 'Gurugram',
                 dateTime: '18th Febuary . 7:20 pm',
                 price: '₹ 2300 . 00  .  Dropped',
-                image: 'assets/png/map2.png',
+                image: 'assets/png/gurugram.png',
+              ),
+              ActivityCard(
+                place: 'Church Street',
+                dateTime: '3rd January . 2:30 pm',
+                price: '₹ 3499 . 20  .  Dropped',
+                image: 'assets/png/church street.png',
               ),
             ],
           ),
@@ -101,7 +107,7 @@ class ActivityCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
-                    image ?? 'assets/png/map.png',
+                    image ?? '',
                     height: 160,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -120,7 +126,7 @@ class ActivityCard extends StatelessWidget {
                       children: [
                         Text(
                           place ?? '',
-                          style: textBoldB.copyWith(fontSize: 14),
+                          style: textBoldB.copyWith(fontSize: 12),
                         ),
                         Text(
                           dateTime ?? '',

@@ -4,6 +4,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:x_taxi_app_client/config/style/style.dart';
 import 'package:x_taxi_app_client/core/nav%20cubit/nav_cubit.dart';
 import 'package:x_taxi_app_client/core/nav%20cubit/nav_state.dart';
+import 'package:x_taxi_app_client/features/account-screen/presentation/account_screen.dart';
+import 'package:x_taxi_app_client/features/activity-screen/presentation/activity_screen.dart';
+import 'package:x_taxi_app_client/features/home/presentation/pages/homescreen.dart';
+import 'package:x_taxi_app_client/features/services/presentation/service_screen.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
@@ -11,23 +15,59 @@ class BottomNavBar extends StatelessWidget {
   void _onItemTapped(BuildContext context, int index) {
     context.read<NavigationCubit>().setIndex(index);
 
+    Widget nextPage;
     switch (index) {
       case 0:
-        Navigator.of(context).popAndPushNamed('/');
+        nextPage = const HomeScreen();
         break;
       case 1:
-        Navigator.of(context).popAndPushNamed('service-screen');
+        nextPage = const ServiceScreen();
         break;
       case 2:
-        Navigator.of(context).popAndPushNamed('activity-screen');
+        nextPage = const ActivityScreen();
         break;
       case 3:
-        Navigator.of(context).popAndPushNamed('account-screen');
+        nextPage = const AccountScreen();
         break;
-
       default:
-        break;
+        return;
     }
+
+    Navigator.of(context).pushReplacement(
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 200),
+        pageBuilder: (context, animation, secondaryAnimation) => nextPage,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = 0.0;
+          const end = 1.0;
+          const curve = Curves.easeInOut;
+
+          var fadeAnimation = Tween(
+            begin: begin,
+            end: end,
+          ).animate(CurvedAnimation(
+            parent: animation,
+            curve: curve,
+          ));
+
+          var slideAnimation = Tween<Offset>(
+            begin: const Offset(0.05, 0),
+            end: Offset.zero,
+          ).animate(CurvedAnimation(
+            parent: animation,
+            curve: curve,
+          ));
+
+          return FadeTransition(
+            opacity: fadeAnimation,
+            child: SlideTransition(
+              position: slideAnimation,
+              child: child,
+            ),
+          );
+        },
+      ),
+    );
   }
 
   @override
