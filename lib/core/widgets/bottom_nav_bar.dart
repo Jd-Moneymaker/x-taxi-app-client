@@ -35,10 +35,10 @@ class BottomNavBar extends StatelessWidget {
     return BlocBuilder<NavigationCubit, NavigationState>(
       builder: (context, state) {
         return Container(
-          height: 70,
+          height: 60,
           color: Colors.black,
           child: BottomNavigationBar(
-            backgroundColor: null,
+            backgroundColor: Colors.white,
             type: BottomNavigationBarType.fixed,
             selectedItemColor: Colors.black, // Add this
             unselectedItemColor: Colors.grey, // Add this
@@ -49,38 +49,66 @@ class BottomNavBar extends StatelessWidget {
             onTap: (index) => _onItemTapped(context, index),
             items: [
               BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(
+                  'assets/svg/solid/home.svg',
+                  width: 22,
+                  height: 22,
+                  colorFilter:
+                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
                 icon: SvgPicture.asset(
                   'assets/svg/home.svg',
-                  width: 24,
-                  height: 24,
+                  width: 22,
+                  height: 22,
                   colorFilter:
                       const ColorFilter.mode(Colors.black, BlendMode.srcIn),
                 ),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(
+                  'assets/svg/solid/services.svg',
+                  width: 22,
+                  height: 22,
+                  colorFilter:
+                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
                 icon: SvgPicture.asset(
                   'assets/svg/services.svg',
-                  width: 24,
-                  height: 24,
+                  width: 22,
+                  height: 22,
                   colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
                 ),
                 label: 'Services',
               ),
               BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(
+                  'assets/svg/solid/activity.svg',
+                  width: 22,
+                  height: 22,
+                  colorFilter:
+                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
                 icon: SvgPicture.asset(
                   'assets/svg/activity.svg',
-                  width: 24,
-                  height: 24,
+                  width: 22,
+                  height: 22,
                   colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
                 ),
                 label: 'Activity',
               ),
               BottomNavigationBarItem(
+                activeIcon: SvgPicture.asset(
+                  'assets/svg/solid/user.svg',
+                  width: 22,
+                  height: 22,
+                  colorFilter:
+                      const ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                ),
                 icon: SvgPicture.asset(
                   'assets/svg/user.svg',
-                  width: 24,
-                  height: 24,
+                  width: 22,
+                  height: 22,
                   colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
                 ),
                 label: 'Account',

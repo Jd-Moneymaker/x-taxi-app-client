@@ -10,7 +10,7 @@ class VehicleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         height: MediaQuery.of(context).size.height * 0.15,
-        width: MediaQuery.of(context).size.width / 3.5,
+        width: MediaQuery.of(context).size.width / 3.7,
         decoration: BoxDecoration(
           color: const Color.fromARGB(12, 0, 0, 0),
           borderRadius: BorderRadius.circular(10),
@@ -20,13 +20,13 @@ class VehicleCard extends StatelessWidget {
           children: [
             Image.network(
               image,
-              height: 100,
-              width: 100,
+              height: 80,
+              width: 80,
               fit: BoxFit.cover,
             ),
             Text(
               title,
-              style: textBoldB.copyWith(fontSize: 16),
+              style: textBoldB,
             ),
           ],
         ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:x_taxi_app_client/config/style/style.dart';
 import 'package:x_taxi_app_client/core/widgets/bottom_nav_bar.dart';
 import 'package:x_taxi_app_client/features/home/presentation/widgets/vehicle_card.dart';
-import '../../../core/widgets/custom_app_bar.dart';
 
 class ServiceScreen extends StatelessWidget {
   const ServiceScreen({super.key});
@@ -10,9 +9,16 @@ class ServiceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Colors.white,
-        appBar: const CustomAppBar(
-          title: 'Services',
-          showBackButton: true,
+        appBar: AppBar(
+          centerTitle: false,
+          backgroundColor: Colors.white,
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              'Services',
+              style: textBoldB.copyWith(fontSize: 16),
+            ),
+          ),
         ),
         // ! bottom nav bar
         bottomNavigationBar: Theme(
@@ -24,13 +30,13 @@ class ServiceScreen extends StatelessWidget {
         ),
         // ! bottom nav bar
         body: Padding(
-          padding: const EdgeInsets.all(25),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Go anywhere, get anything',
-                style: textBoldB.copyWith(fontSize: 24),
+                'Go anywhere, get anything . . .',
+                style: textBoldB.copyWith(fontSize: 14),
               ),
               const SizedBox(height: 25),
               const Row(

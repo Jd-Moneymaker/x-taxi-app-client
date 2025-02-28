@@ -10,6 +10,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          scrolledUnderElevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           centerTitle: false,
@@ -25,12 +26,12 @@ class AccountScreen extends StatelessWidget {
                 SizedBox(width: 15),
                 Text(
                   'Max',
-                  style: textBoldB.copyWith(fontSize: 20),
+                  style: textBoldB.copyWith(fontSize: 14),
                 ),
                 Spacer(),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  width: 70,
+                  width: 60,
                   height: 30,
                   decoration: BoxDecoration(
                     color: Colors.grey[100],
@@ -71,16 +72,15 @@ class AccountScreen extends StatelessWidget {
                   vertical: 20,
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     AccountButtons(
                       title: 'Help',
                     ),
-                    SizedBox(width: 20),
                     AccountButtons(
                       title: 'Wallet',
                       icon: 'assets/svg/money.svg',
                     ),
-                    SizedBox(width: 20),
                     AccountButtons(
                       title: 'Activity',
                       icon: 'assets/svg/activity.svg',
@@ -160,13 +160,13 @@ class AccountOptions extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 image ?? 'assets/svg/settings.svg',
-                height: 24,
-                width: 24,
+                height: 22,
+                width: 22,
               ),
               SizedBox(width: 20),
               Text(
                 title ?? '',
-                style: textBoldB.copyWith(fontSize: 16),
+                style: textBoldB.copyWith(fontSize: 12),
               ),
             ],
           ),
@@ -184,12 +184,12 @@ class AccountBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         margin: EdgeInsets.symmetric(horizontal: 25),
-        height: MediaQuery.of(context).size.height * 0.1,
+        height: MediaQuery.of(context).size.height * 0.09,
         decoration: BoxDecoration(
           color: Colors.grey[100],
           borderRadius: BorderRadius.circular(10),
         ),
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(15),
         child: Row(
           children: [
             Column(
@@ -198,11 +198,12 @@ class AccountBanner extends StatelessWidget {
               children: [
                 Text(
                   title ?? '',
-                  style: textBoldB.copyWith(fontSize: 18),
+                  style: textBoldB.copyWith(fontSize: 12),
                 ),
+                SizedBox(height: 2),
                 Text(
                   subTitle ?? '',
-                  style: textB.copyWith(fontSize: 12),
+                  style: textB,
                 )
               ],
             ),
@@ -229,8 +230,7 @@ class AccountButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         height: MediaQuery.of(context).size.height * 0.1,
-        width: MediaQuery.of(context).size.width * 0.27,
-        padding: EdgeInsets.all(10),
+        width: MediaQuery.of(context).size.width / 3.6,
         decoration: BoxDecoration(
           color: Colors.grey[100],
           borderRadius: BorderRadius.circular(10),
@@ -240,13 +240,13 @@ class AccountButtons extends StatelessWidget {
           children: [
             SvgPicture.asset(
               icon ?? 'assets/svg/help.svg',
-              height: 24,
-              width: 24,
+              height: 22,
+              width: 22,
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             Text(
               title ?? '',
-              style: textBoldB.copyWith(fontSize: 16),
+              style: textBoldB.copyWith(fontSize: 12),
             ),
           ],
         ),

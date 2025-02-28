@@ -9,19 +9,46 @@ class ActivityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
-          title: Text(
-            'Activity',
-            style: textBoldB.copyWith(fontSize: 24),
-          ),
+          scrolledUnderElevation: 0,
           centerTitle: false,
+          backgroundColor: Colors.white,
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(
+              'Activity',
+              style: textBoldB.copyWith(fontSize: 16),
+            ),
+          ),
         ),
         bottomNavigationBar: const BottomNavBar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              ActivityHeading(),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 25,
+                  vertical: 0,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Past',
+                      style: textBoldB.copyWith(fontSize: 14),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/svg/filter.svg',
+                        width: 24,
+                        height: 24,
+                        colorFilter:
+                            ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               ActivityCard(
                 place: 'Aliapurduar',
                 dateTime: '12th June . 10:59 am',
@@ -52,7 +79,7 @@ class ActivityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         margin: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-        height: MediaQuery.of(context).size.height * 0.35,
+        height: MediaQuery.of(context).size.height * 0.3,
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
@@ -75,49 +102,55 @@ class ActivityCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                   child: Image.asset(
                     image ?? 'assets/png/map.png',
-                    height: 250,
+                    height: 160,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               // ! image
-              SizedBox(
-                height: 10,
-              ),
+
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        place ?? '',
-                        style: textBoldB.copyWith(fontSize: 18),
-                      ),
-                      Text(
-                        dateTime ?? '',
-                        style: textB.copyWith(fontSize: 12),
-                      ),
-                      Text(
-                        price ?? '',
-                        style: textB.copyWith(fontSize: 12),
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          place ?? '',
+                          style: textBoldB.copyWith(fontSize: 14),
+                        ),
+                        Text(
+                          dateTime ?? '',
+                          style: textB,
+                        ),
+                        Text(
+                          price ?? '',
+                          style: textB,
+                        ),
+                      ],
+                    ),
                   ),
                   Spacer(),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      backgroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                  SizedBox(
+                    height: 30,
+                    width: 70,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        padding: EdgeInsets.symmetric(vertical: 5),
+                        backgroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      'Rebook',
-                      style: textW.copyWith(fontSize: 12),
+                      child: Text(
+                        'Rebook',
+                        style: textBoldW,
+                      ),
                     ),
                   ),
                   SizedBox(width: 20),
@@ -125,36 +158,6 @@ class ActivityCard extends StatelessWidget {
               )
             ],
           ),
-        ),
-      );
-}
-
-class ActivityHeading extends StatelessWidget {
-  const ActivityHeading({super.key});
-
-  @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 25,
-          vertical: 10,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Past',
-              style: textBoldB.copyWith(fontSize: 18),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset(
-                'assets/svg/filter.svg',
-                width: 24,
-                height: 24,
-                colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
-              ),
-            ),
-          ],
         ),
       );
 }
