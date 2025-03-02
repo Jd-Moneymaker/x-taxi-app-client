@@ -16,11 +16,15 @@ class AuthUseCase {
   }
 
   Future<void> login(String email, String password) async {
-    final userData = AuthEntity(
-      email: email,
-      password: password,
-    );
-    await _authRepository.emailLogIn(userData);
+    try {
+      final userData = AuthEntity(
+        email: email,
+        password: password,
+      );
+      await _authRepository.emailLogIn(userData);
+    } catch (e) {
+      throw Exception('Login failed: $e');
+    }
   }
 
   Future<void> logout() async {

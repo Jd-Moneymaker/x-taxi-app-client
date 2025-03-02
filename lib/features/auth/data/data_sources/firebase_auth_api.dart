@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:x_taxi_app_client/features/auth/data/models/auth_model.dart';
 
 class FirebaseAuthApi {
   final FirebaseAuth _auth;
@@ -52,6 +53,15 @@ class FirebaseAuthApi {
     }
   }
   // ! Log out
+
+// ! Fetch user data
+  Future<List<AuthModel>> fetchUserData(userData) async {
+    final querySnapshot = await _firestore.collection('users').get();
+    return querySnapshot.docs.map((doc) {
+      return AuthModel.fromJson(doc.data());
+    }).toList();
+  }
+// ! Fetch user data
 
   AuthException _handleAuthError(FirebaseAuthException e) {
     switch (e.code) {

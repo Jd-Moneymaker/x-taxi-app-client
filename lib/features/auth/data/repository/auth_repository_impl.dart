@@ -37,7 +37,6 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<void> logout<AuthEntity>() async {
     try {
       await _firebaseAuthApi.logOut();
-      log('user logged out');
     } catch (e) {
       log('Logout error: ${e.toString()}');
       throw AuthException('Failed to log out: $e');

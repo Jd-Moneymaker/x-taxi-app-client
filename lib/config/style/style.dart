@@ -16,12 +16,25 @@ const headerW = TextStyle(
 );
 // ? bold heading
 const headerBoldB = TextStyle(
-  fontSize: 12,
+  fontSize: 14,
   fontWeight: FontWeight.w700,
   color: Colors.black,
   fontFamily: 'JosefinSans',
 );
 const headerBoldW = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+  color: Colors.white,
+  fontFamily: 'JosefinSans',
+);
+// ? bold text
+const textBoldB = TextStyle(
+  fontSize: 12,
+  color: Colors.black,
+  fontWeight: FontWeight.w700,
+  fontFamily: 'JosefinSans',
+);
+const textBoldW = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w700,
   color: Colors.white,
@@ -29,27 +42,15 @@ const headerBoldW = TextStyle(
 );
 // ? normal text
 const textB = TextStyle(
-    fontSize: 10,
-    color: Color.fromARGB(150, 0, 0, 0),
-    fontWeight: FontWeight.w500,
-    fontFamily: 'JosefinSans',
-    height: 1.4);
-const textW = TextStyle(
-  fontSize: 10,
+  fontSize: 12,
+  color: Color.fromARGB(150, 0, 0, 0),
   fontWeight: FontWeight.w500,
-  color: Colors.white,
   fontFamily: 'JosefinSans',
+  height: 1.4,
 );
-// ? bold text
-const textBoldB = TextStyle(
-  fontSize: 10,
-  color: Colors.black,
-  fontWeight: FontWeight.w700,
-  fontFamily: 'JosefinSans',
-);
-const textBoldW = TextStyle(
-  fontSize: 10,
-  fontWeight: FontWeight.w700,
+const textW = TextStyle(
+  fontSize: 12,
+  fontWeight: FontWeight.w500,
   color: Colors.white,
   fontFamily: 'JosefinSans',
 );
