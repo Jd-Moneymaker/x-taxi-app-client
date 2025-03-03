@@ -5,7 +5,7 @@ import 'package:x_taxi_app_client/config/style/style.dart';
 import 'package:x_taxi_app_client/core/widgets/bottom_nav_bar.dart';
 import 'package:x_taxi_app_client/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:x_taxi_app_client/features/auth/presentation/cubit/auth_state.dart';
-import 'package:x_taxi_app_client/features/auth/presentation/pages/auth/views/auth.dart';
+import 'package:x_taxi_app_client/features/auth/presentation/pages/auth/auth.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});

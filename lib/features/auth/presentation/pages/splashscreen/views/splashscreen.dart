@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:x_taxi_app_client/features/auth/presentation/pages/auth/views/auth_test.dart';
+import 'package:x_taxi_app_client/features/auth/presentation/pages/auth/auth.dart';
 import 'package:x_taxi_app_client/features/home/presentation/pages/homescreen.dart';
 import '../../../cubit/auth_cubit.dart';
 import '../../../cubit/auth_state.dart';
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
           } else if (state is AuthLoggedOut) {
             log('User logged out, navigating to AuthScreen');
             Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (_) => const AuthTest()),
+              MaterialPageRoute(builder: (_) => const AuthScreen()),
             );
           }
         },

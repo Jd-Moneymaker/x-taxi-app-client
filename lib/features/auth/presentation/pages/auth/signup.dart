@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../config/style/style.dart';
+import '../../../../../config/style/style.dart';
 
-import '../../../cubit/auth_cubit.dart';
-import '../../../cubit/auth_state.dart';
-import '../../../widgets/auth_button.dart';
-import '../../../widgets/auth_textfield.dart';
+import '../../cubit/auth_cubit.dart';
+import '../../cubit/auth_state.dart';
+import '../../widgets/auth_button.dart';
+import '../../widgets/auth_textfield.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});

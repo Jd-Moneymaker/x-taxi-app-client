@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../config/style/style.dart';
-import '../pages/auth/views/login.dart';
-import '../pages/auth/views/signup.dart';
+import '../pages/auth/login.dart';
+import '../pages/auth/signup.dart';
 
 class LoginSigninTabBar extends StatelessWidget {
   const LoginSigninTabBar({super.key});
