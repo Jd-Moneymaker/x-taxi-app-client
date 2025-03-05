@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:x_taxi_app_client/features/account-screen/presentation/account_screen.dart';
 import 'package:x_taxi_app_client/features/activity-screen/presentation/activity_screen.dart';
 import 'package:x_taxi_app_client/features/auth/presentation/pages/splashscreen/views/splashscreen.dart';
+import 'package:x_taxi_app_client/features/location-screen/presentation/location/location_screen.dart';
 import 'package:x_taxi_app_client/features/services/presentation/service_screen.dart';
 
-import '../../features/home/presentation/pages/homescreen.dart';
+// import '../../features/home/presentation/pages/homescreen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       // ! auth screens
-      case '/':
+      case 'splash':
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       // ! auth screens
 
-      case 'home':
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case '/':
+        return MaterialPageRoute(builder: (_) => const LocationScreen());
 
       // ! navigation screens
       case 'service-screen':
