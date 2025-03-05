@@ -18,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
 
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           scrolledUnderElevation: 0,
           centerTitle: false,
           backgroundColor: Colors.white,
@@ -51,68 +52,76 @@ class _HomeScreenState extends State<HomeScreen> {
                 // ! search bar
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                   child: SizedBox(
-                    height: 50,
-                    child: TextFormField(
-                      style: textBoldB,
-                      decoration: InputDecoration(
-                        hintText: 'Where to?',
-                        hintStyle: textBoldB,
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 15), // Add this
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.black,
-                          size: 16,
-                        ),
-                        suffixIcon: Container(
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
-                          width: 80,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(
-                                  Icons.access_time,
-                                  color: Colors.black,
-                                  size: 14,
-                                ),
-                                const SizedBox(width: 4),
-                                Text(
-                                  'Now',
-                                  style: textBoldB,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        filled: true,
-                        fillColor: const Color.fromARGB(12, 0, 0, 0),
-                        border: OutlineInputBorder(
+                    height: 60,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, 'location-screen');
+                      },
+                      borderRadius: BorderRadius.circular(50),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(12, 0, 0, 0),
                           borderRadius: BorderRadius.circular(50),
-                          borderSide: BorderSide.none,
+                        ),
+                        child: Row(
+                          children: [
+                            SizedBox(width: 20),
+                            Icon(
+                              Icons.search,
+                              color: Colors.black,
+                              size: 16,
+                            ),
+                            SizedBox(width: 12),
+                            Text(
+                              'Where to?',
+                              style: textBoldB,
+                            ),
+                            Spacer(),
+                            Container(
+                              margin: const EdgeInsets.symmetric(vertical: 10),
+                              width: 80,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Icon(
+                                      Icons.access_time,
+                                      color: Colors.black,
+                                      size: 14,
+                                    ),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      'Now',
+                                      style: textBoldB,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                          ],
                         ),
                       ),
                     ),
                   ),
                 ),
-                // ! search bar
+// ! search bar
 
                 // ! saved address
                 Container(
                   margin:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(
@@ -121,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  height: 55,
+                  height: 60,
                   width: double.infinity,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -129,16 +138,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Container(
                           padding: EdgeInsets.all(10),
-                          height: 32,
-                          width: 32,
+                          height: 36,
+                          width: 36,
                           decoration: BoxDecoration(
                             color: const Color.fromARGB(12, 0, 0, 0),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: SvgPicture.asset(
                             'assets/svg/bag.svg',
-                            width: 12,
-                            height: 12,
+                            width: 16,
+                            height: 16,
                             colorFilter:
                                 ColorFilter.mode(Colors.black, BlendMode.srcIn),
                           ),
@@ -152,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Icon(
                           Icons.arrow_forward_ios,
                           color: Colors.black,
-                          size: 12,
+                          size: 14,
                         ),
                       ],
                     ),
@@ -164,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.2,
                   margin:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   padding: const EdgeInsets.only(left: 20, top: 20, bottom: 20),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(239, 255, 193, 7),
@@ -182,14 +191,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(height: 10),
                             Text(
                               'Try out our membership plans',
-                              style: textBoldB.copyWith(
-                                fontSize: 12,
-                              ),
+                              style: textBoldB,
                             ),
                             const SizedBox(height: 10),
                             Text(
                               'Save 20% on rides, prepaid bookings and more',
-                              style: textBoldW,
+                              style: textW,
                             ),
                             const Spacer(),
                             SizedBox(
@@ -280,23 +287,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 // ! services
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
                     children: [
                       Row(
                         children: [
                           Text(
                             'Services',
-                            style: textBoldB.copyWith(fontSize: 12),
+                            style: textBoldB,
                           ),
                           const Spacer(),
                           TextButton(
                             onPressed: () {},
                             child: Text(
                               'See all',
-                              style: textBoldW.copyWith(
+                              style: textBoldB.copyWith(
                                 color: Colors.grey,
-                                fontSize: 12,
                               ),
                             ),
                           ),
@@ -332,10 +338,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 // ! ad horizontal
                 const SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 5),
                   child: Row(
                     children: [
-                      SizedBox(width: 15),
+                      SizedBox(width: 10),
                       AdCard(
                         title: 'Save time and money',
                         image:

@@ -111,7 +111,19 @@ class _PasswordScreenState extends State<PasswordScreen> {
               // ! button
               AuthButton(
                 bgColor: Colors.black,
-                onPressed: () {},
+                onPressed: () {
+                  if (passwordController.text.trim() == '123456') {
+                    Navigator.of(context).pushNamed('home');
+                  } else {
+                    // Show error for invalid password
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Invalid password. Use 123456'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+                },
                 title: 'Continue',
               ),
               // ! button

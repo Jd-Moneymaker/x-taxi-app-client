@@ -95,19 +95,45 @@ class _AuthScreenState extends State<AuthScreen> {
 
               SizedBox(height: 30),
               // ! button
+              // Update the continue button section with validation
               AuthButton(
                 bgColor: Colors.black,
                 onPressed: () {
+                  // Validate input
                   if (isPhoneAuth) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => OtpScreen()),
-                    );
+                    if (_phoneController.text.trim() == '9774416514') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OtpScreen()),
+                      );
+                    } else {
+                      // Show error for invalid phone
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                              'Incorrect phone number. Please use a registered phone number'),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
                   } else {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PasswordScreen()),
-                    );
+                    if (_emailController.text.trim().toLowerCase() ==
+                        'max@gmail.com') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PasswordScreen()),
+                      );
+                    } else {
+                      // Show error for invalid email
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                              'Incorrect email. Please use a registeres email address'),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
                   }
                 },
                 title: 'Continue',

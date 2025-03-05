@@ -3,6 +3,11 @@
         android:label="x_taxi_app_client"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <!-- TODO: Add your Google Maps API key here -->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBTeA6HLBayKfuxB3oGnYAwe5wWHiMzThw"/>
+
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"

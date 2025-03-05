@@ -30,7 +30,7 @@ class AccountScreen extends StatelessWidget {
                 SizedBox(width: 15),
                 Text(
                   'Max',
-                  style: textBoldB.copyWith(fontSize: 14),
+                  style: headerBoldB,
                 ),
                 Spacer(),
                 Container(
@@ -52,7 +52,7 @@ class AccountScreen extends StatelessWidget {
                       SizedBox(width: 6),
                       Text(
                         '5.0',
-                        style: textBoldB.copyWith(fontSize: 12),
+                        style: textBoldB,
                       ),
                     ],
                   ),
@@ -72,7 +72,7 @@ class AccountScreen extends StatelessWidget {
               // ? account buttons
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 25,
+                  horizontal: 15,
                   vertical: 20,
                 ),
                 child: Row(
@@ -202,7 +202,7 @@ class AccountOptions extends StatelessWidget {
               SizedBox(width: 20),
               Text(
                 title ?? '',
-                style: textBoldB.copyWith(fontSize: 12),
+                style: textBoldB,
               ),
             ],
           ),
@@ -219,7 +219,7 @@ class AccountBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        margin: EdgeInsets.symmetric(horizontal: 25),
+        margin: EdgeInsets.symmetric(horizontal: 15),
         height: MediaQuery.of(context).size.height * 0.09,
         decoration: BoxDecoration(
           color: Colors.grey[100],
@@ -234,7 +234,7 @@ class AccountBanner extends StatelessWidget {
               children: [
                 Text(
                   title ?? '',
-                  style: textBoldB.copyWith(fontSize: 12),
+                  style: textBoldB,
                 ),
                 SizedBox(height: 2),
                 Text(
@@ -282,7 +282,7 @@ class AccountButtons extends StatelessWidget {
             SizedBox(height: 5),
             Text(
               title ?? '',
-              style: textBoldB.copyWith(fontSize: 12),
+              style: textBoldB,
             ),
           ],
         ),

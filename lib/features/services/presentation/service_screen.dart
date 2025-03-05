@@ -11,6 +11,7 @@ class ServiceScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: false,
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           title: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -30,13 +31,13 @@ class ServiceScreen extends StatelessWidget {
         ),
         // ! bottom nav bar
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Go anywhere, get anything . . .',
-                style: textBoldB.copyWith(fontSize: 14),
+                style: textBoldB,
               ),
               const SizedBox(height: 25),
               const Row(

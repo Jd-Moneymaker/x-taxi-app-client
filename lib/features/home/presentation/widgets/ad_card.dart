@@ -32,7 +32,7 @@ class AdCard extends StatelessWidget {
                   const Spacer(),
                   SizedBox(
                     height: 30,
-                    width: 80,
+                    width: 90,
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
@@ -44,7 +44,7 @@ class AdCard extends StatelessWidget {
                       ),
                       child: const Text(
                         'Learn more',
-                        style: textBoldB,
+                        style: textB,
                       ),
                     ),
                   ),

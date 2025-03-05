@@ -4,8 +4,17 @@ import 'package:x_taxi_app_client/config/style/style.dart';
 import 'package:x_taxi_app_client/features/auth/presentation/widgets/auth_button.dart';
 import 'package:x_taxi_app_client/features/auth/presentation/widgets/bottom_sheet.dart';
 
-class OtpScreen extends StatelessWidget {
+// Convert to StatefulWidget
+class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
+
+  @override
+  State<OtpScreen> createState() => _OtpScreenState();
+}
+
+class _OtpScreenState extends State<OtpScreen> {
+  // Add state variable to store OTP
+  String _otpValue = '';
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +58,17 @@ class OtpScreen extends StatelessWidget {
                 showFieldAsBox: true,
                 // runs when a code is typed in
                 onCodeChanged: (String code) {
-                  //! handle validation or checks here
+                  // We can store partial codes here if needed
+                  setState(() {
+                    _otpValue = code;
+                  });
                 },
-                //runs when every textfield is filled
+                // runs when every textfield is filled
                 onSubmit: (String verificationCode) {
-                  // ! validation logic and submit here
+                  // Store the complete OTP when all fields are filled
+                  setState(() {
+                    _otpValue = verificationCode;
+                  });
                 },
               ),
               //  ! otp textfield
@@ -87,7 +102,21 @@ class OtpScreen extends StatelessWidget {
               // ! button
               AuthButton(
                 bgColor: Colors.black,
-                onPressed: () {},
+                onPressed: () {
+                  // Now we can use _otpValue here
+                  if (_otpValue == '696969') {
+                    Navigator.of(context).pushNamed('home');
+                  } else {
+                    // Show error for invalid OTP
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                            'Invalid OTP. Please use a correct otp given by administrator'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+                },
                 title: 'Continue',
               ),
               // ! button

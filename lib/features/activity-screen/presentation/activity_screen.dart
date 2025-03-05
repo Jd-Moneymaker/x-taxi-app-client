@@ -11,12 +11,13 @@ class ActivityScreen extends StatelessWidget {
         appBar: AppBar(
           scrolledUnderElevation: 0,
           centerTitle: false,
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           title: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
               'Activity',
-              style: textBoldB.copyWith(fontSize: 16),
+              style: headerBoldB,
             ),
           ),
         ),
@@ -34,7 +35,7 @@ class ActivityScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Past',
-                      style: textBoldB.copyWith(fontSize: 14),
+                      style: headerBoldB,
                     ),
                     IconButton(
                       onPressed: () {},
@@ -126,7 +127,7 @@ class ActivityCard extends StatelessWidget {
                       children: [
                         Text(
                           place ?? '',
-                          style: textBoldB.copyWith(fontSize: 12),
+                          style: textBoldB,
                         ),
                         Text(
                           dateTime ?? '',
@@ -155,7 +156,7 @@ class ActivityCard extends StatelessWidget {
                       ),
                       child: Text(
                         'Rebook',
-                        style: textBoldW,
+                        style: textW,
                       ),
                     ),
                   ),
